@@ -20,14 +20,21 @@ function signin() {
     })
       .then((response) => response.json())
       .then((json) => {
+        
+          if (json.status == "Not Found"){
+              alert("User not found");
+          }
+          else {
         if (json.type == 0) {
           location.href = "./signup.html";
-          console.log(json.type);
-          console.log(json);
+        //   console.log(json.type);
+        //   console.log(json);
         } else {
           location.href = "";
         }
-      })
+    }
+      }
+      )
       .catch((err) => console.log(err));
 
     
